@@ -1,24 +1,35 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.jenkins-ci.plugins</groupId>
-        <artifactId>plugin</artifactId>
-        <version>4.4</version>
-        <relativePath />
-    </parent>
+  <parent>
+    <groupId>org.jenkins-ci.plugins</groupId>
+    <artifactId>plugin</artifactId>
+    <version>4.51</version>
+    <relativePath />
+  </parent>
 
-    <groupId>io.jenkins.plugins</groupId>
-    <artifactId>propelo-job-reporter</artifactId>
-    <inceptionYear>2019</inceptionYear>
-    <packaging>hpi</packaging>
-    <version>${revision}${changelist}</version>
+  <groupId>io.jenkins.plugins</groupId>
+  <artifactId>propelo-job-reporter</artifactId>
+  <inceptionYear>2019</inceptionYear>
+  <packaging>hpi</packaging>
+  <version>${revision}${changelist}</version>
 
-    <name>Propelo's Job Reporter</name>
+  <name>Propelo's Job Reporter</name>
     
-    <description>Reports back to Propelo after each Job Run with metadata and unsuccessful job logs.</description>
+  <description>Reports back to Propelo after each Job Run with metadata and unsuccessful job logs.</description>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.jenkins.tools.bom</groupId>
+        <artifactId>bom-weekly</artifactId>
+        <version>2612.v3d6a_2128c0ef</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
     <!-- <display-info>ok</display-info> -->
     <url>https://app.propelo.ai</url>
     <licenses>
@@ -93,8 +104,7 @@
         <spotbugs.version>4.7.3</spotbugs.version>
         <findbugs.skip>true</findbugs.skip>
         <spotbugs.skip>true</spotbugs.skip>
-        <java.level>8</java.level>
-        <jenkins.version>2.200</jenkins.version>
+        <jenkins.version>2.346.3</jenkins.version>
     </properties>
 
     <build>
@@ -139,7 +149,6 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>mailer</artifactId>
-            <version>1.20</version>
         </dependency>
         <!-- End: plugins-->
         <dependency>
@@ -155,27 +164,22 @@
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
-            <version>${commons.logging.version}</version>
         </dependency>
         <dependency>
             <groupId>org.kohsuke</groupId>
             <artifactId>access-modifier-annotation</artifactId>
-            <version>1.16</version>
         </dependency>
         <dependency>
             <groupId>net.jcip</groupId>
             <artifactId>jcip-annotations</artifactId>
-            <version>1.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.spotbugs</groupId>
             <artifactId>spotbugs-annotations</artifactId>
-            <version>${spotbugs.version}</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>animal-sniffer-annotations</artifactId>
-            <version>${animal.sniffer.annotations}</version>
         </dependency>
 
         <dependency>
@@ -226,7 +230,6 @@
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
         </dependency>
 
         <dependency>
@@ -281,7 +284,6 @@
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
-            <version>1.14</version>
         </dependency>
     </dependencies>
 
